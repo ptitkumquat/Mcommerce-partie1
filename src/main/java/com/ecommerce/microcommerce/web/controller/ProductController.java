@@ -49,6 +49,15 @@ public class ProductController {
         return produitsFiltres;
     }
 
+    //Récupérer la liste des produits par ordre alphabétique
+    @GetMapping(value="/AlphaProduits")
+    public Iterable<Product> trierProduitsParOrdreAlphabetique(){
+
+        Iterable<Product> produits = productDao.findAllByOrderByNom();
+
+        return produits;
+    }
+
 
     //Récupérer un produit par son Id
     @ApiOperation(value = "Récupère un produit grâce à son ID à condition que celui-ci soit en stock!")
